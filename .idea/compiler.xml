@@ -7,11 +7,13 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="java1vk" />
+        <module name="java1-vk-bot" />
       </profile>
     </annotationProcessing>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="java1-vk-bot" options="-parameters" />
       <module name="java1vk" options="-parameters" />
     </option>
   </component>

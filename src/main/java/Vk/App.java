@@ -1,5 +1,6 @@
 package Vk;
 
+
 import com.javastream.vk_api_javastream.utils.Util;
 import com.vk.api.sdk.client.TransportClient;
 import com.vk.api.sdk.client.VkApiClient;
@@ -22,7 +23,6 @@ class App {
     private static GroupActor actor;
     private static VkApiClient vk;
     private static Keyboard keyboard = new Keyboard();
-    //  vkMessenger.addTags("привет", "привет, здасьте, здравствуйте, добр, день, вечер, утро, hi, hello");
 
     private static void accept(Message message) {
         if (!message.isOut()) {
@@ -30,7 +30,7 @@ class App {
 
             try {
                 if (message.getText().contains("Привет")) {
-                    sendMessage("Привет я бот игра! Нажми на алфавит или Приз", message); }
+                    sendMessage("Привет я бот игра! Нажми на алфавит или приз", message); }
                 else
                 if (message.getText().contains("пока")) {
                     sendMessage("Удачи!", message);
@@ -99,32 +99,32 @@ class App {
                 else if (message.getText().contains("Ю")) { File file = new File("D:\\Ю.jpg");
                     sendPhotoMessage("Молодец! Теперь напиши большую букву Я", file, message);}
                 else if (message.getText().contains("2")) { File file = new File("D:\\Пример1.jpg");
-                    sendPhotoMessage("Молодец! Теперь реши пример 2+2= напиши правильный ответ  ", file, message);}
+                    sendPhotoMessage("Молодец! Теперь реши пример 2+2= напиши  ответ цифрой 5 или 4 ", file, message);}
                 else if (message.getText().contains("4")) { File file = new File("D:\\Пример2.jpg");
-                    sendPhotoMessage( "Молодец! Теперь последний примнер 3+3= напигши ответ цифрой 5 или 6",file, message);
+                    sendPhotoMessage( "Молодец! Теперь последний примнер 3+3= напигши ответ цифрой 7 или 6",file, message);
                 }                else if (message.getText().contains("Я")) { File file = new File("D:\\Я.jpg");
                     sendPhotoMessage( "Молодец! 1 уровень пройден Теперь реши пример 1+1= напиши ответ цифрой 2 или 3",file, message);}
                 else if (message.getText().contains("6")) { File file = new File("D:\\Пример3.jpg");
-                    sendPhotoMessage( "Молодец! 2 уровень пройден Теперь загадка Ку-ка-ре-ку кричит он звонко,Хлопает крыльями громко-громко,\n" +
+                    sendPhotoMessage( "Молодец! 2 уровень пройден. Теперь загадка. Ку-ка-ре-ку кричит он звонко,Хлопает крыльями громко-громко,\n" +
                             "\nКурочек верный пастух,\n" +
                             "\nКак зовут его (п...х).\n" +
                             "\n",file, message);}
                 else if (message.getText().contains("петух")) { File file = new File("D:\\Загадка1.jpg");
-                    sendPhotoMessage( "Молодец! Последняя загадка до приза Ночью он совсем не спит,\n" +
+                    sendPhotoMessage( "Молодец! Последняя загадка до приза. Ночью он совсем не спит,\n" +
                             "\nДом от мышек сторожит,\n" +
                             "\n Молоко из миски пьёт,\n" +
                             "\nНу конечно это (к.т).\n" +
                             "\n",file, message);}
                 else if (message.getText().contains("кот")) { File file = new File("D:\\Ура.jpg");
-                    sendPhotoMessage( "Молодец! Приз твой скажи маме пароль солнышко и она отдаст тебе приз",file, message);}
+                    sendPhotoMessage( "Молодец! Приз твой скажи маме пароль: солнышко и она отдаст тебе приз",file, message);}
                 else if (message.getText().contains("солнышко")) { File file = new File("D:\\Солнышко.jpg");
                     sendPhotoMessage( "Приз у мамы я просто бот",file, message);}
                 else if (message.getText().contains("приз")) { File file = new File("D:\\Приз.jpg");
                     sendPhotoMessage( "Чтобы получить приз нужно пройти весь алфавит от А до Я решить три примера и отгадать две загадки",file, message);}
                 else if (message.getText().contains("алфавит")) { File file = new File("D:\\Алфавит.jpg");
-                    sendPhotoMessage( "1 уровень Алфавит нужну писать по одной заглавной букве напиши букву А",file, message);}
+                    sendPhotoMessage( "1 уровень Алфавит нужно писать по одной заглавной букве напиши букву А",file, message);}
 
-                else  sendMessage("Нажми на алфавит или приз и узнай что нужно делать если не верно\n" +
+                else  sendMessage("Нажми на алфавит или приз и узнай что нужно делать. Если не верно\n" +
                             "\nто вспомни последнюю букву которую нажимал. Помни что все буквы заглавные А Б В Г Д ...а слова с маленькой приз кот ", message);
 
 
@@ -133,18 +133,6 @@ class App {
             }
         }
     }
-
-    public void sendMessage(String text, Integer peerId) throws ClientException {
-        if (text == null || peerId == null) return;
-        vk.messages()
-                .send(actor)
-                .peerId(peerId)
-                .message(text)
-                .randomId((int) (Math.random() * 2048))
-                .executeAsRaw();
-    }
-    public void addTags(java.lang.String name, java.lang.String tags) { /* compiled code */ }
-
     public static void sendPhotoMessage(String text, File file, Message message) throws ClientException, ApiException, IOException {
         if (message == null) return;
 
@@ -190,15 +178,14 @@ class App {
         line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("алфавит").setType(KeyboardButtonActionType.TEXT)).setColor(KeyboardButtonColor.POSITIVE));
         line1.add(new KeyboardButton().setAction(new KeyboardButtonAction().setLabel("приз").setType(KeyboardButtonActionType.TEXT)).setColor(KeyboardButtonColor.NEGATIVE));
 
-        List<KeyboardButton> line2 = new ArrayList<>();
-        line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setType(KeyboardButtonActionType.LOCATION)));
+        //  List<KeyboardButton> line2 = new ArrayList<>();
+        // line2.add(new KeyboardButton().setAction(new KeyboardButtonAction().setType(KeyboardButtonActionType.LOCATION)));
 
         allKey.add(line1);
-        allKey.add(line2);
+        // allKey.add(line2);
         keyboard.setButtons(allKey);
 
-        actor = new GroupActor(199598002, "d86d2243f8672855a09f024a...");
-        Integer ts = vk.messages().getLongPollServer(actor).execute().getTs();
+        actor = new GroupActor(199598002, "");        Integer ts = vk.messages().getLongPollServer(actor).execute().getTs();
 
         while (true) {
             MessagesGetLongPollHistoryQuery historyQuery = vk.messages().getLongPollHistory(actor).ts(ts);
