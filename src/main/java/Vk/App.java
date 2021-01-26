@@ -184,7 +184,7 @@ class App {
         // allKey.add(line2);
         keyboard.setButtons(allKey);
 
-        actor = new GroupActor(199598002, "d86d2243f8672855a09f024a208ac0f94e51f2276676982bd2b5ee11ace5afc52d0a609526a1dbbd85745");        Integer ts = vk.messages().getLongPollServer(actor).execute().getTs();
+        actor = new GroupActor(199598002, "");        Integer ts = vk.messages().getLongPollServer(actor).execute().getTs();
 
         while (true) {
             MessagesGetLongPollHistoryQuery historyQuery = vk.messages().getLongPollHistory(actor).ts(ts);
